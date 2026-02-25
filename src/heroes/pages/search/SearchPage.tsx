@@ -10,10 +10,11 @@ export const SearchPage = () => {
   const [searchParams] = useSearchParams();
 
   //estraccion de parametros de busqueda
-  const name = searchParams.get("name") || "";
-  const strength = searchParams.get("strength") || "0";
+  //name es el nombre del heroe a buscar, strength es la fuerza minima del heroe a buscar
+  const name = searchParams.get("name") ?? undefined;
+  const strength = searchParams.get("strength") ?? undefined;
   const { data: searchResponse } = useSearchHeroes({ name, strength });
-  // console.log(searchResponse);
+  // console.log({ searchResponse });
   return (
     <>
       {/* Jumbotron */}

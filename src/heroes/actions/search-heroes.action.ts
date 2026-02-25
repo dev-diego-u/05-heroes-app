@@ -12,7 +12,7 @@ export interface OptionsSearch {
   strength?: string;
 }
 
-export const searchHeroesAction = async (query: OptionsSearch) => {
+export const searchHeroesAction = async (query: OptionsSearch = {}) => {
   const { name, team, category, universe, status, strength } = query;
   //al inicio no se envian parametros, por lo que se retorna un array vacio
   if (!name && !team && !category && !universe && !status && !strength) {

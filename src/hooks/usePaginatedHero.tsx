@@ -9,7 +9,7 @@ export interface PaginatedHeroProps {
 export const usePaginatedHero = ({
   page,
   limit,
-  category,
+  category = "all",
 }: PaginatedHeroProps) => {
   return useQuery({
     queryKey: ["heroes", { page, limit, category }], // Clave única para esta consulta

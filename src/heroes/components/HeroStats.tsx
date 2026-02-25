@@ -15,6 +15,11 @@ export const HeroStats = () => {
       ? ((favoriteCount / summary.totalHeroes) * 100).toFixed(1)
       : "0";
 
+  if (!summary) {
+    return <div>Cargando estadísticas...</div>;
+  }
+  // ..
+
   // console.log(summary);
   return (
     <>
@@ -39,8 +44,16 @@ export const HeroStats = () => {
           icon={<Heart className="h-4 w-4 text-muted-foreground" />}
         >
           {/* todo: por hacer */}
-          <div className="text-2xl font-bold text-red-600">{favoriteCount}</div>
-          <p className="text-xs text-muted-foreground">
+          <div
+            className="text-2xl font-bold text-red-600"
+            data-testid="favorite-count"
+          >
+            {favoriteCount}
+          </div>
+          <p
+            className="text-xs text-muted-foreground"
+            data-testid="percentage-favorites"
+          >
             {PorcentajeFavoritos}% of total
           </p>
         </HeroStatCard>

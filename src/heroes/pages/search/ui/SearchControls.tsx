@@ -19,6 +19,7 @@ export const SearchControls = () => {
   const activeAccord = searchParams.get("active-accordion") ?? "";
   const selectedStrength = Number(searchParams.get("strength") ?? "0");
 
+  //funcion para actualizar los parametros de busqueda
   const setQueryParams = (name: string, value: string) => {
     setSearchParams((prev) => {
       prev.set(name, value);
@@ -88,7 +89,12 @@ export const SearchControls = () => {
 
       {/* Advanced Filters */}
 
-      <Accordion type="single" collapsible value={activeAccord}>
+      <Accordion
+        type="single"
+        collapsible
+        value={activeAccord}
+        data-testid="accordion"
+      >
         <AccordionItem value="advance-filters">
           {/* <AccordionTrigger>Filtros avanzados</AccordionTrigger> */}
           <AccordionContent>

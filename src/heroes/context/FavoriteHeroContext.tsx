@@ -20,6 +20,7 @@ export const FavoriteHeroContext = createContext<
   FavoriteHeroContextType | undefined
 >(undefined);
 
+// Función para obtener los héroes favoritos desde localStorage
 const getFavoriteHeroesFromStorage = (): Hero[] => {
   const storedFavorites = localStorage.getItem("favoriteHeroes");
   return storedFavorites ? JSON.parse(storedFavorites) : [];
@@ -28,12 +29,12 @@ const getFavoriteHeroesFromStorage = (): Hero[] => {
 // Provider que maneja el estado y lógica de favoritos
 export const FavoriteHeroProvider = ({ children }: PropsWithChildren) => {
   const [favorites, setFavorites] = useState<Hero[]>(() =>
-    getFavoriteHeroesFromStorage()
+    getFavoriteHeroesFromStorage(),
   );
 
   // Verifica si un héroe está en la lista de favoritos
   const isFavorite = (hero: Hero): boolean => {
-    return favorites.some((h) => h.id === hero.id);
+    return favorites.some((h) => h.id === hero.id); //retorna true o false
   };
 
   // Agrega o elimina un héroe de favoritos
@@ -68,13 +69,13 @@ export const FavoriteHeroProvider = ({ children }: PropsWithChildren) => {
   );
 };
 
-// // Hook para usar el contexto de favoritos
+// Hook personalizado para consumir el contexto de héroes favoritos
 export const useFavoriteHero = () => {
   const context = useContext(FavoriteHeroContext);
 
   if (!context) {
     throw new Error(
-      "useFavoriteHero debe usarse dentro de FavoriteHeroProvider"
+      "useFavoriteHero debe usarse dentro de FavoriteHeroProvider",
     );
   }
 
