@@ -152,7 +152,7 @@ describe("HeroStats Component", () => {
 
   test("should changed the percentage when favorite count changes", () => {
     localStorage.setItem("favoriteHeroes", JSON.stringify([mockHero])); // Simula que el usuario ha marcado 2 héroes como favoritos
-    const { container } = renderHeroStats(mockSummaryData);
+    renderHeroStats(mockSummaryData);
     // screen.debug();
     const favoritePercentageElement = screen.getByTestId(
       "percentage-favorites",

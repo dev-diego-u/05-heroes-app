@@ -59,7 +59,7 @@ describe("getHeroesByPageAction", () => {
     };
 
     heroesApiMock.onGet("/").reply(200, reponseObject);
-    const response = await getHeroesByPageAction({ page: NaN });
+    await getHeroesByPageAction({ page: NaN });
     const request = heroesApiMock.history;
     // console.log(request);
     const params = request[0].params;
@@ -77,7 +77,7 @@ describe("getHeroesByPageAction", () => {
       heroes: [],
     };
     heroesApiMock.onGet("/").reply(200, reponseObject);
-    const response = await getHeroesByPageAction({
+    await getHeroesByPageAction({
       page: 2,
       limit: 5,
       category: "super",

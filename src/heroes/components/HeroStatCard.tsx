@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 interface HeroStatCardProps {
   title: string;
-  icon: JSX.Element;
+  icon: React.ReactNode;
   children: React.ReactNode;
 }
 

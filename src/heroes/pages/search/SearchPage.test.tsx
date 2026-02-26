@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { beforeEach, describe, expect, test, vi } from "vitest";
 import SearchPage from "./SearchPage";
 import { MemoryRouter } from "react-router";
-import { Query, QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { FavoriteHeroProvider } from "@/heroes/context/FavoriteHeroContext";
 import { useSearchHeroes } from "@/hooks/useSearchHeroes";
 import { Hero } from "@/heroes/types/hero.interface";
@@ -128,7 +128,7 @@ describe("SearchPage", () => {
     } as any);
     renderSearchPage();
 
-    const heroGrid = screen.getByTestId("hero-grid");
+    // const heroGrid = screen.getByTestId("hero-grid");
     // screen.debug(heroGrid);
 
     expect(screen.getByText("Clark Kent")).toBeDefined();

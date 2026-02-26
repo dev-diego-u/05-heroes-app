@@ -1,6 +1,5 @@
 import { describe, expect, test } from "vitest";
 import { getHeroAction } from "./get-hero.action";
-import { get } from "http";
 
 describe("getHeroAction", () => {
   test("should fetch hero data and return with complete image url", async () => {
